@@ -6,11 +6,21 @@
 		<!-- // <script src="../bower_components/angular/angular.js"></script> -->
 		<script src="./angular.js"></script>
 		<script src="./app.js"></script>
-		
 	</head>
 	<body>
-			<h1>{{hello}}</h1>	
-		<input type="text" ng-model="hello"/>
-		<p></p>
+		<div class="todo-header" ng-controller="TodoCtrl">
+		<h1>TO DO's</h1>
+		<h2> You have {{getTotalTodos()}} things to do today.</h2>
+		<ul>
+        	<li ng-repeat="todo in todos">
+          		<input type="checkbox" ng-model="todo.done"/>
+          		<span class="done-{{todo.done}}">{{todo.text}}</span>
+        	</li>
+      	</ul>
+		<form>
+        	<input class="addinput" placeholder="I need to..." type="text" ng-model="formTodoText"/>
+        	<button class="addbtn" ng-click="addTodo()"><h2>Add</h2></button>
+      	</form>
+		</div>
 	</body>
 </html>

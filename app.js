@@ -58,4 +58,14 @@ app.use(function(err, req, res, next) {
 
 module.exports = app;
 
+function TodoCtrl($scope) {
+    $scope.getTotalTodos = function () {
+        return $scope.todos.length;
+  };
+    $scope.addTodo = function () {
+        $scope.todos.push({text:$scope.formTodoText, done:false});
+        $scope.formTodoText = '';
+  };
+}
+
 
